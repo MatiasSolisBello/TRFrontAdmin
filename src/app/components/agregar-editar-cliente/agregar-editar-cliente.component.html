@@ -1,0 +1,53 @@
+<div class="container">
+    <form [formGroup] = "cliente" (ngSubmit)="guardarCliente()">
+        <br>
+        <h3>{{accion}} Cliente</h3>
+        <div class="form-group row">
+            <label class="control-label col-md-12">RUN:</label>
+            <input type="number" name="rut" class="form-control" formControlName="rut"> 
+            <span class="text-danger ml-3" 
+            *ngIf="cliente.get('rut').hasError('required') && cliente.get('rut').touched">
+            El run es requerido</span>
+
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12">Nombre:</label>
+            <input type="text" name="nombre" class="form-control"  formControlName="nombre">
+            <span class="text-danger ml-3" 
+            *ngIf="cliente.get('nombre').hasError('required') && cliente.get('nombre').touched">
+            El nombre es requerido</span>
+
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12">Telefono o Celular:</label>
+            <input type="tel" name="telefono" class="form-control" formControlName="telefono">
+            <span class="text-danger ml-3" 
+            *ngIf="cliente.get('telefono').hasError('required') && cliente.get('telefono').touched">
+            El telefono es requerido</span>
+
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12">Correo</label>
+            <input type="email" name="correo" class="form-control" formControlName="correo">
+            <span class="text-danger ml-3" 
+            *ngIf="cliente.get('correo').hasError('required') && cliente.get('correo').touched">
+            El correo es requerido</span>
+
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12">Contraseña:</label>
+            <input type="password" name="password" class="form-control" formControlName="password">
+            <span class="text-danger ml-3" 
+            *ngIf="cliente.get('password').hasError('required') && cliente.get('password').touched">
+            El password es requerido</span>
+
+        </div>
+        <div class="form-group row">
+            <button [routerLink] ="['/']" class="btn btn-secondary float-left">Cancelar</button>
+            <button class="btn btn-success float-right" [disabled] = "cliente.invalid">Aceptar</button>
+        </div>
+    </form>
+</div>
+
+
+

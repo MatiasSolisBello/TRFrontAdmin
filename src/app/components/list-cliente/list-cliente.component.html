@@ -1,0 +1,29 @@
+<h3>Lista de Clientes</h3>
+<a class="btn btn-success float-right" [routerLink]="['/agregar']">Agregar Cliente</a>
+
+<!-- ADD TASK FORM -->
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>RUN</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Telefono</th>
+            </tr>
+        </thead>
+        <tbody class="contenidobusqueda">
+            <tr>
+                <td> <a [routerLink]="['/ver/1']">200589696</a></td>
+                <td>German Acevedo</td>
+                <td>ger.acevedo@deathmail.com</td>
+                <td>23456789</td>
+                <td>
+                    <button class="btn btn-secondary btm-sm float-right" [routerLink]="['/editar/1']">EDITAR</button>
+                    <button class="btn btn-danger btm-sm float-right">BORRAR</button>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
