@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Cliente } from 'src/app/models/cliente';
+import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
   selector: 'app-agregar-editar-cliente',
@@ -10,8 +12,9 @@ import { ActivatedRoute } from '@angular/router';
 export class AgregarEditarClienteComponent implements OnInit {
   cliente: FormGroup;
   rutCliente  = 0;
-  accion = 'Agregar'
-  constructor(private fb: FormBuilder, private route: ActivatedRoute) { 
+  accion = 'Agregar';
+  cli:Cliente;
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private clienteService: ClienteService, private router: Router) { 
     this.cliente = this.fb.group({
       rut:['', Validators.required],
       nombre:['', Validators.required],
@@ -28,19 +31,47 @@ export class AgregarEditarClienteComponent implements OnInit {
     this.esEditar();
   }
   guardarCliente(){
+    if(this.accion === 'Agregar'){
+      const cliente: Cliente = {
+        rut: this.cliente.get('rut').value,
+        nombre: this.cliente.get('nombre').value,
+        correo: this.cliente.get('correo').value,
+        telefono: this.cliente.get('telefono').value,
+        password: this.cliente.get('password').value,
+      };
+      this.clienteService.createCliente(cliente).subscribe(data => {
+        this.router.navigate(['/listacliente']);
+      });
+    }else{
+      const cliente: Cliente = {
+        rut: this.cliente.get('rut').value,
+        nombre: this.cliente.get('nombre').value,
+        correo: this.cliente.get('correo').value,
+        telefono: this.cliente.get('telefono').value,
+        password: this.cliente.get('password').value,
+      };
+      this.clienteService.updateCliente(this.rutCliente, cliente).subscribe(data => {
+        this.router.navigate(['/listacliente']);
+      })
+    }
     console.log(this.cliente);
   }
 
   esEditar(){
     if(this.rutCliente > 0){
       this.accion = 'Editar';
-      this.cliente.patchValue({
-        rut: 345678,
-        nombre: 'German Acevedo',
-        correo: 'ger@ujdb.com',
-        telefono: '23456',
-        password: 'dferg'
-      })
+      this.clienteService.verCliente(this.rutCliente).subscribe(data => {
+        this.cli = data;
+        this.cliente.patchValue({
+          rut: data.rut,
+          nombre: data.nombre,
+          correo: data.correo,
+          telefono: data.telefono,
+          password: data.password
+        });
+      });
+
+      
     }
   }
 

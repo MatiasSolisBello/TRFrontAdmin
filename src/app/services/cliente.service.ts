@@ -36,6 +36,6 @@ export class ClienteService {
   }
 
   updateCliente(rut: number, cli: Cliente): Observable<Cliente>{
-    return this.http.put<Cliente>(this.myAppUrl + this.myApiUrl, cli, this.httpOptions);
+    return this.http.put<Cliente>(this.myAppUrl + this.myApiUrl + rut, cli, this.httpOptions);
   }
 }
