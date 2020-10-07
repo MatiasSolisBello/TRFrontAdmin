@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AgregarEditarClienteComponent } from './components/agregar-editar-cliente/agregar-editar-cliente.component';
 import { ListClienteComponent } from './components/list-cliente/list-cliente.component';
+import { LoginComponent } from './components/login/login.component';
+import { PrincipalComponent } from './components/principal/principal.component';
 import { VerClienteComponent } from './components/ver-cliente/ver-cliente.component';
 
 //ROUTING
@@ -9,7 +11,10 @@ const routes: Routes = [
   {path: 'agregar', component: AgregarEditarClienteComponent},
   {path: 'editar/:rut', component: AgregarEditarClienteComponent},
   {path: 'ver/:rut', component: VerClienteComponent},
-  {path: '', component: ListClienteComponent, pathMatch: 'full'},
+  {path: 'listacliente', component: ListClienteComponent},
+
+  {path: 'principal', component: PrincipalComponent},
+  {path: '', component: LoginComponent, pathMatch: 'full'},
   {path: '**', redirectTo: '/'},
 
 ];

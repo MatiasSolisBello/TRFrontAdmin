@@ -1,6 +1,17 @@
-<h3>Lista de Clientes</h3>
-<a class="btn btn-success float-right" [routerLink]="['/agregar']">Agregar Cliente</a>
-
+<!--this is navbar.component.html-->
+<app-navbar></app-navbar>
+<div class="row" style="padding-top: 10px;">
+    <div class="col-lg-6">
+        <h3>Lista de Clientes</h3>
+    </div>
+    <div class="col-lg-6">
+        <a class="btn btn-success float-right" [routerLink]="['/agregar']">Agregar Cliente</a>
+    </div>
+</div>
+<div class="spinner-border text-primary" role="status" *ngIf="loading"> 
+    <span class="sr-only">Loading...</span>
+</div>
+<br>
 <!-- ADD TASK FORM -->
 <div class="table-responsive">
     <table class="table table-hover">
@@ -13,14 +24,14 @@
             </tr>
         </thead>
         <tbody class="contenidobusqueda">
-            <tr>
-                <td> <a [routerLink]="['/ver/1']">200589696</a></td>
-                <td>German Acevedo</td>
-                <td>ger.acevedo@deathmail.com</td>
-                <td>23456789</td>
+            <tr *ngFor="let Cliente of listCliente">
+                <td> <a [routerLink]="['/ver/', cliente.rut]">{{cliente.rut}}</a></td>
+                <td>{{cliente.nombre}}</td>
+                <td>{{cliente.correo}}</td>
+                <td>{{cliente.telefono}}</td>
                 <td>
-                    <button class="btn btn-secondary btm-sm float-right" [routerLink]="['/editar/1']">EDITAR</button>
-                    <button class="btn btn-danger btm-sm float-right">BORRAR</button>
+                    <button class="btn btn-secondary btm-sm float-right" [routerLink]="['/editar/', cliente.rut]">EDITAR</button>
+                    <button class="btn btn-danger btm-sm float-right" (click)="delete(cliente.rut)">BORRAR</button>
                 </td>
 
             </tr>

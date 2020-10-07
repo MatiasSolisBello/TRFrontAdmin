@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,8 @@ import { AgregarEditarClienteComponent } from './components/agregar-editar-clien
 import { ListClienteComponent } from './components/list-cliente/list-cliente.component';
 import { VerClienteComponent } from './components/ver-cliente/ver-cliente.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { LoginComponent } from './components/login/login.component';
+import { PrincipalComponent } from './components/principal/principal.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +18,15 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AgregarEditarClienteComponent,
     ListClienteComponent,
     VerClienteComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginComponent,
+    PrincipalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
