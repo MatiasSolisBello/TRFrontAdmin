@@ -8,10 +8,13 @@ import { VerClienteComponent } from './components/ver-cliente/ver-cliente.compon
 
 //ROUTING
 const routes: Routes = [
-  {path: 'agregar', component: AgregarEditarClienteComponent},
-  {path: 'editar/:rut', component: AgregarEditarClienteComponent},
-  {path: 'ver/:rut', component: VerClienteComponent},
+  {path: 'agregar-cliente', component: AgregarEditarClienteComponent},
+  {path: 'editar-cliente/:rut', component: AgregarEditarClienteComponent},
+  {path: 'ver-cliente/:rut', component: VerClienteComponent},
+
   {path: 'listacliente', component: ListClienteComponent},
+    //{path: 'listadepart', component: ListDepartComponent},
+  //{path: 'listaservicio', component: ListServicioComponent},
 
   {path: 'principal', component: PrincipalComponent},
   {path: '', component: LoginComponent, pathMatch: 'full'},

@@ -6,7 +6,7 @@
         <h3>Lista de Clientes</h3>
     </div>
     <div class="col-lg-6">
-        <a class="btn btn-success float-right" [routerLink]="['/agregar']">Agregar Cliente</a>
+        <a class="btn btn-success float-right" [routerLink]="['/agregar-cliente']">Agregar Cliente</a>
     </div>
 </div>
 <div class="spinner-border text-primary" role="status" *ngIf="loading"> 
@@ -26,12 +26,12 @@
         </thead>
         <tbody class="contenidobusqueda">
             <tr *ngFor="let Cliente of listCliente">
-                <td> <a [routerLink]="['/ver/', cliente.rut]">{{cliente.rut}}</a></td>
+                <td> <a [routerLink]="['/ver-cliente/', cliente.rut]">{{cliente.rut}}</a></td>
                 <td>{{cliente.nombre}}</td>
                 <td>{{cliente.correo}}</td>
                 <td>{{cliente.telefono}}</td>
                 <td>
-                    <button class="btn btn-secondary btm-sm float-right" [routerLink]="['/editar/', cliente.rut]">EDITAR</button>
+                    <button class="btn btn-secondary btm-sm float-right" [routerLink]="['/editar-cliente/', cliente.rut]">EDITAR</button>
                     <button class="btn btn-danger btm-sm float-right" (click)="delete(cliente.rut)">BORRAR</button>
                 </td>
 
