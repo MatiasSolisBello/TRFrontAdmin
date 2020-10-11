@@ -1,0 +1,57 @@
+<!--this is navbar.component.html-->
+<app-navbar></app-navbar>
+
+<div class="container">
+    <form [formGroup] = "depart" (ngSubmit)="guardarDepart()">
+        <br>
+        <h3>{{accion}} departamento</h3>
+        <div class="form-group row">
+            <label class="control-label col-md-12">ID depart:</label>
+            <input type="number" name="id_depart" class="form-control" formControlName="id_depart"> 
+            <span class="text-danger ml-3" 
+            *ngIf="depart.get('id_depart').hasError('required') && depart.get('id_depart').touched">
+            ID es requerido</span>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12">Precio:</label>
+            <input type="number" name="precio" class="form-control" formControlName="precio"> 
+            <span class="text-danger ml-3" 
+            *ngIf="depart.get('precio').hasError('required') && depart.get('precio').touched">
+            Precio es requerido</span>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12">Estado:</label>
+            <select class="form-control" formControlName="estado" name="estado">
+                <option value="">--Seleccione estado--</option>
+                <option value="Disponible">Disponible</option>
+                <option value="En Mantencion">En Mantencion</option>
+                <option value="Cerrado">Cerrado</option>
+            </select>
+            <span class="text-danger ml-3" 
+            *ngIf="depart.get('estado').hasError('required') && depart.get('estado').touched">
+            Estado es requerido</span>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12">Ciudad:</label>
+            <input type="text" name="ciudad" class="form-control" formControlName="ciudad"> 
+            <span class="text-danger ml-3" 
+            *ngIf="depart.get('ciudad').hasError('required') && depart.get('ciudad').touched">
+            Ciudad es requerido</span>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12">Descripcion:</label>
+            <input type="text" name="descripcion" class="form-control" formControlName="descripcion"> 
+            <span class="text-danger ml-3" 
+            *ngIf="depart.get('descripcion').hasError('required') && depart.get('descripcion').touched">
+            Descripcion es requerido</span>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12">Foto (opcional):</label>
+            <input type="file" name="foto" class="form-control" formControlName="foto">
+        </div>
+        <div class="form-group row">
+            <button [routerLink] ="['/listadepart']" class="btn btn-secondary float-left">Cancelar</button>
+            <button class="btn btn-success float-right" [disabled] = "depart.invalid">Aceptar</button>
+        </div>
+    </form>
+</div>

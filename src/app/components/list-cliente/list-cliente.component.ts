@@ -10,7 +10,6 @@ import { ClienteService } from 'src/app/services/cliente.service';
 
 export class ListClienteComponent implements OnInit {
   listCliente: Cliente[];
-  loading: false;
   constructor(private clienteService: ClienteService) { }
 
   ngOnInit(): void {
@@ -19,7 +18,6 @@ export class ListClienteComponent implements OnInit {
 
   cargarCliente(){
     this.clienteService.getListCliente().subscribe(data => {
-      this.loading = false;
       this.listCliente = data;
     });
   }
@@ -27,7 +25,6 @@ export class ListClienteComponent implements OnInit {
   delete(rut: number){
     this.clienteService.deleteCliente(rut).subscribe(data => {
       this.cargarCliente();
-      this.loading = false;
 
     })
   }

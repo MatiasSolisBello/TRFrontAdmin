@@ -15,27 +15,30 @@ export class ClienteService {
 		})
   };
   
-  constructor(private http: HttpClient){
-
-  }
+  constructor(private http: HttpClient){ }
 
   getListCliente(): Observable<Cliente[]>{
-    return this.http.get<Cliente[]>(this.myAppUrl + this.myApiUrl);
+    return this.http.get<Cliente[]>
+    (this.myAppUrl + this.myApiUrl);
   }
 
   deleteCliente(rut: number):Observable<Cliente>{
-    return this.http.delete<Cliente>(this.myAppUrl + this.myApiUrl + rut);
+    return this.http.delete<Cliente>
+    (this.myAppUrl + this.myApiUrl + rut);
   }
 
   createCliente(cli : Cliente): Observable<Cliente>{
-    return this.http.post<Cliente>(this.myAppUrl + this.myApiUrl, cli, this.httpOptions);
+    return this.http.post<Cliente>
+    (this.myAppUrl + this.myApiUrl, cli, this.httpOptions);
   }
 
   verCliente(rut: number): Observable<Cliente>{
-    return this.http.get<Cliente>(this.myAppUrl + this.myApiUrl + rut);
+    return this.http.get<Cliente>
+    (this.myAppUrl + this.myApiUrl + rut);
   }
 
   updateCliente(rut: number, cli: Cliente): Observable<Cliente>{
-    return this.http.put<Cliente>(this.myAppUrl + this.myApiUrl + rut, cli, this.httpOptions);
+    return this.http.put<Cliente>
+    (this.myAppUrl + this.myApiUrl + rut, cli, this.httpOptions);
   }
 }

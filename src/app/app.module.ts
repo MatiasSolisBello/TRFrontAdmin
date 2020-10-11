@@ -11,6 +11,12 @@ import { VerClienteComponent } from './components/ver-cliente/ver-cliente.compon
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { PrincipalComponent } from './components/principal/principal.component';
+import { ListDepartComponent } from './components/list-depart/list-depart.component';
+import { ListServicioComponent } from './components/list-servicio/list-servicio.component';
+import { AgregarEditarServicioComponent } from './components/agregar-editar-servicio/agregar-editar-servicio.component';
+import { AgregarEditarDepartComponent } from './components/agregar-editar-depart/agregar-editar-depart.component';
+import { VerDepartComponent } from './components/ver-depart/ver-depart.component';
+import { VerServicioComponent } from './components/ver-servicio/ver-servicio.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +26,13 @@ import { PrincipalComponent } from './components/principal/principal.component';
     VerClienteComponent,
     NavbarComponent,
     LoginComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    ListDepartComponent,
+    ListServicioComponent,
+    AgregarEditarServicioComponent,
+    AgregarEditarDepartComponent,
+    VerDepartComponent,
+    VerServicioComponent
   ],
   imports: [
     BrowserModule,

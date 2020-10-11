@@ -1,0 +1,56 @@
+<!--this is navbar.component.html-->
+<app-navbar></app-navbar>
+
+<div class="container">
+    <div class="row" style="padding-top: 10px;">
+        <div class="col-lg-6">
+            <h3>Departamentos</h3>
+        </div>
+        <div class="col-lg-6">
+            <a class="btn btn-success float-right" 
+                [routerLink]="['/agregar-depart']">Agregar
+            </a>
+        </div>
+    </div>
+    <br>
+    <!-- ADD TASK FORM -->
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Precio</th>
+                    <th>Estado</th>
+                    <th>Ciudad</th>
+                    <th>Descripcion</th>
+                    <th>Foto</th>
+                </tr>
+            </thead>
+            <tbody class="contenidobusqueda">
+                <tr *ngFor="let Departamento of listDepart">
+                    <td> 
+                        <a [routerLink]="['/ver-depart/', depart.id_depart]">
+                            {{depart.id_depart}}
+                        </a>
+                    </td>
+                    <td>{{depart.precio}}</td>
+                    <td>{{depart.estado}}</td>
+                    <td>{{depart.ciudad}}</td>
+                    <td>{{depart.descripcion}}</td>
+                    <td>{{depart.foto}}</td>
+                    <td>depart
+                        <button class="btn btn-secondary btm-sm float-right" 
+                            [routerLink]="['/editar-depart/', depart.id_depart]">
+                            EDITAR
+                        </button>
+                        <button class="btn btn-danger btm-sm float-right" 
+                            (click)="delete(depart.id_depart)">
+                            BORRAR
+                        </button>
+                    </td>
+    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
