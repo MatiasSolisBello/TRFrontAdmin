@@ -19,14 +19,16 @@
                 <th>Nombre</th>
                 <th>Correo</th>
                 <th>Telefono</th>
+                <th>Password</th>
             </tr>
         </thead>
-        <tbody class="contenidobusqueda">
-            <tr *ngFor="let Cliente of listCliente">
+        <tbody>
+            <tr *ngFor="let cliente of listCliente">
                 <td> <a [routerLink]="['/ver-cliente/', cliente.rut]">{{cliente.rut}}</a></td>
                 <td>{{cliente.nombre}}</td>
                 <td>{{cliente.correo}}</td>
                 <td>{{cliente.telefono}}</td>
+                <td>{{cliente.password}}</td>
                 <td>
                     <button class="btn btn-secondary btm-sm float-right" [routerLink]="['/editar-cliente/', cliente.rut]">EDITAR</button>
                     <button class="btn btn-danger btm-sm float-right" (click)="delete(cliente.rut)">BORRAR</button>

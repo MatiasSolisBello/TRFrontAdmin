@@ -7,8 +7,8 @@ import { Servicio } from '../models/servicio';
   providedIn: 'root'
 })
 export class ServicioService {
-  myAppUrl = 'http://localhost:xxxx/';
-	myApiUrl = 'api/servicio/';
+  myAppUrl = 'http://localhost:8090/';
+	myApiUrl = 'servicio';
 	httpOptions = {
 		headers: new HttpHeaders({
 			'Content-Type': 'application/json'
@@ -18,25 +18,26 @@ export class ServicioService {
   constructor(private http: HttpClient) { }
 
   getListServicio(): Observable<Servicio[]>{
-    return this.http.get<Servicio[]>(this.myAppUrl + this.myApiUrl);
+    return this.http.get<Servicio[]>(this.myAppUrl + this.myApiUrl + '/listar');
   }
 
   deleteServicio(id_servicio: number):Observable<Servicio>{
     return this.http.delete<Servicio>
-    (this.myAppUrl + this.myApiUrl + id_servicio);
+    (this.myAppUrl + this.myApiUrl + '/eliminar/'+ id_servicio);
   }
 
   createServicio(ser : Servicio): Observable<Servicio>{
     return this.http.post<Servicio>
-    (this.myAppUrl + this.myApiUrl, ser, this.httpOptions);
+    (this.myAppUrl + this.myApiUrl + '/guardar' , ser, this.httpOptions);
   }
 
   verServicio(id_servicio: number): Observable<Servicio>{
-    return this.http.get<Servicio>(this.myAppUrl + this.myApiUrl + id_servicio);
+    return this.http.get<Servicio>
+    (this.myAppUrl + this.myApiUrl + '/listar/' + id_servicio);
   }
 
   updateServicio(id_servicio: number, ser: Servicio): Observable<Servicio>{
     return this.http.put<Servicio>
-    (this.myAppUrl + this.myApiUrl + id_servicio, ser, this.httpOptions);
+    (this.myAppUrl + this.myApiUrl + '/actualizar/'+ id_servicio, ser, this.httpOptions);
   }
 }

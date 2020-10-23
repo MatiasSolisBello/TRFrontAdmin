@@ -7,8 +7,8 @@ import { Depart } from '../models/depart';
   providedIn: 'root'
 })
 export class DepartService {
-  myAppUrl = 'http://localhost:xxxx/';
-	myApiUrl = 'api/Depart/';
+  myAppUrl = 'http://localhost:8090/';
+	myApiUrl = 'depart';
 	httpOptions = {
 		headers: new HttpHeaders({
 			'Content-Type': 'application/json'
@@ -19,7 +19,7 @@ export class DepartService {
 
   getListDepart(): Observable<Depart[]>{
     return this.http.get<Depart[]>
-    (this.myAppUrl + this.myApiUrl);
+    (this.myAppUrl + this.myApiUrl );
   }
 
   deleteDepart(id_depart: number):Observable<Depart>{
@@ -29,7 +29,7 @@ export class DepartService {
 
   createDepart(dep : Depart): Observable<Depart>{
     return this.http.post<Depart>
-    (this.myAppUrl + this.myApiUrl, dep, this.httpOptions);
+    (this.myAppUrl + this.myApiUrl, dep, this.httpOptions );
   }
 
   verDepart(id_depart: number): Observable<Depart>{

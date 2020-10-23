@@ -7,11 +7,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ClienteService {
-  myAppUrl = 'http://localhost:xxxx/';
-	myApiUrl = 'api/cliente/';
+  myAppUrl = 'http://localhost:8090/';
+	myApiUrl = 'cliente';
 	httpOptions = {
 		headers: new HttpHeaders({
-			'Content-Type': 'application/json'
+      'Content-Type': 'application/json'
 		})
   };
   
@@ -19,26 +19,26 @@ export class ClienteService {
 
   getListCliente(): Observable<Cliente[]>{
     return this.http.get<Cliente[]>
-    (this.myAppUrl + this.myApiUrl);
+    (this.myAppUrl + this.myApiUrl+ '/listar');
   }
 
   deleteCliente(rut: number):Observable<Cliente>{
     return this.http.delete<Cliente>
-    (this.myAppUrl + this.myApiUrl + rut);
+    (this.myAppUrl + this.myApiUrl + '/eliminar/'+ rut);
   }
 
   createCliente(cli : Cliente): Observable<Cliente>{
     return this.http.post<Cliente>
-    (this.myAppUrl + this.myApiUrl, cli, this.httpOptions);
+    (this.myAppUrl + this.myApiUrl + '/guardar' , cli, this.httpOptions);
   }
 
   verCliente(rut: number): Observable<Cliente>{
     return this.http.get<Cliente>
-    (this.myAppUrl + this.myApiUrl + rut);
+    (this.myAppUrl + this.myApiUrl + '/listar/' + rut);
   }
 
   updateCliente(rut: number, cli: Cliente): Observable<Cliente>{
     return this.http.put<Cliente>
-    (this.myAppUrl + this.myApiUrl + rut, cli, this.httpOptions);
+    (this.myAppUrl + this.myApiUrl + '/actualizar/'+ rut, cli, this.httpOptions);
   }
 }

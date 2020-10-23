@@ -38,7 +38,7 @@ export class AgregarEditarServicioComponent implements OnInit {
         precio: this.servicio.get('precio').value,
       };
       this.servicioService.createServicio(Servicio).subscribe(data => {
-        this.router.navigate(['/listaServicio']);
+        this.router.navigate(['/listaservicio']);
       });
     }else{
       const Servicio: Servicio = {
@@ -48,7 +48,7 @@ export class AgregarEditarServicioComponent implements OnInit {
         precio: this.servicio.get('precio').value,
       };
       this.servicioService.updateServicio(this.id, Servicio).subscribe(data => {
-        this.router.navigate(['/listaServicio']);
+        this.router.navigate(['/listaservicio']);
       })
     }
     console.log(this.servicio);
