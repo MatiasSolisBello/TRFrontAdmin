@@ -17,7 +17,7 @@ export class AgregarEditarServicioComponent implements OnInit {
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private servicioService: ServicioService, private router: Router) { 
     this.servicio = this.fb.group({
       id_servicio:['', Validators.required],
-      nombre:['', Validators.required],
+      servicio:['', Validators.required],
       descripcion:['', Validators.required],
       precio:['', Validators.required],
     });
@@ -33,7 +33,7 @@ export class AgregarEditarServicioComponent implements OnInit {
     if(this.accion === 'Agregar'){
       const Servicio: Servicio = {
         id_servicio: this.servicio.get('id_servicio').value,
-        nombre: this.servicio.get('nombre').value,
+        nombre: this.servicio.get('servicio').value,
         descripcion: this.servicio.get('descripcion').value,
         precio: this.servicio.get('precio').value,
       };
@@ -41,13 +41,13 @@ export class AgregarEditarServicioComponent implements OnInit {
         this.router.navigate(['/listaservicio']);
       });
     }else{
-      const Servicio: Servicio = {
+      const servicio: Servicio = {
         id_servicio: this.servicio.get('id_servicio').value,
-        nombre: this.servicio.get('nombre').value,
+        nombre: this.servicio.get('servicio').value,
         descripcion: this.servicio.get('descripcion').value,
         precio: this.servicio.get('precio').value,
       };
-      this.servicioService.updateServicio(this.id, Servicio).subscribe(data => {
+      this.servicioService.updateServicio(servicio).subscribe(data => {
         this.router.navigate(['/listaservicio']);
       })
     }
@@ -61,7 +61,7 @@ export class AgregarEditarServicioComponent implements OnInit {
         this.ser = data;
         this.servicio.patchValue({
           id_servicio: data.id_servicio,
-          nombre: data.nombre,
+          servicio: data.nombre,
           descripcion: data.descripcion,
           precio: data.precio
         });

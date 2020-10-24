@@ -37,8 +37,8 @@ export class ClienteService {
     (this.myAppUrl + this.myApiUrl + '/listar/' + rut);
   }
 
-  updateCliente(rut: number, cli: Cliente): Observable<Cliente>{
+  updateCliente(cli: Cliente): Observable<Cliente>{
     return this.http.put<Cliente>
-    (this.myAppUrl + this.myApiUrl + '/actualizar/'+ rut, cli, this.httpOptions);
+    (this.myAppUrl + this.myApiUrl + '/actualizar', cli, this.httpOptions);
   }
 }

@@ -10,7 +10,6 @@ import { LoginComponent } from './components/login/login.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { VerClienteComponent } from './components/ver-cliente/ver-cliente.component';
 import { VerDepartComponent } from './components/ver-depart/ver-depart.component';
-import { VerServicioComponent } from './components/ver-servicio/ver-servicio.component';
 
 //ROUTING
 const routes: Routes = [
@@ -23,7 +22,6 @@ const routes: Routes = [
   {path: 'editar-depart/:id_depart', component: AgregarEditarDepartComponent},
 
   {path: 'ver-cliente/:rut', component: VerClienteComponent},
-  {path: 'ver-servicio/:id_servicio', component: VerServicioComponent},
   {path: 'ver-depart/:id_depart', component: VerDepartComponent},
 
   {path: 'listacliente', component: ListClienteComponent},

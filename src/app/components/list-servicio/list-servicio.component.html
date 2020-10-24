@@ -25,11 +25,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let servicio of listServicio">
-                <td> 
-                    <a [routerLink]="['/ver-servicio/', servicio.id_servicio]">
-                        {{servicio.id_servicio}}
-                    </a>
-                </td>
+                <td>{{servicio.id_servicio}} </td>
                 <td>{{servicio.nombre}}</td>
                 <td>{{servicio.descripcion}}</td>
                 <td>{{servicio.precio}}</td>

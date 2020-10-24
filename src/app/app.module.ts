@@ -16,8 +16,6 @@ import { ListServicioComponent } from './components/list-servicio/list-servicio.
 import { AgregarEditarServicioComponent } from './components/agregar-editar-servicio/agregar-editar-servicio.component';
 import { AgregarEditarDepartComponent } from './components/agregar-editar-depart/agregar-editar-depart.component';
 import { VerDepartComponent } from './components/ver-depart/ver-depart.component';
-import { VerServicioComponent } from './components/ver-servicio/ver-servicio.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +30,6 @@ import { VerServicioComponent } from './components/ver-servicio/ver-servicio.com
     AgregarEditarServicioComponent,
     AgregarEditarDepartComponent,
     VerDepartComponent,
-    VerServicioComponent
   ],
   imports: [
     BrowserModule,

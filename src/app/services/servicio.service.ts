@@ -36,8 +36,8 @@ export class ServicioService {
     (this.myAppUrl + this.myApiUrl + '/listar/' + id_servicio);
   }
 
-  updateServicio(id_servicio: number, ser: Servicio): Observable<Servicio>{
+  updateServicio(ser: Servicio): Observable<Servicio>{
     return this.http.put<Servicio>
-    (this.myAppUrl + this.myApiUrl + '/actualizar/'+ id_servicio, ser, this.httpOptions);
+    (this.myAppUrl + this.myApiUrl + '/actualizar', ser, this.httpOptions);
   }
 }

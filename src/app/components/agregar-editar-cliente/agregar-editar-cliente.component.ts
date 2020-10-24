@@ -50,7 +50,7 @@ export class AgregarEditarClienteComponent implements OnInit {
         telefono: this.cliente.get('telefono').value,
         password: this.cliente.get('password').value,
       };
-      this.clienteService.updateCliente(this.rutCliente, cliente).subscribe(data => {
+      this.clienteService.updateCliente(cliente).subscribe(data => {
         this.router.navigate(['/listacliente']);
       })
     }
