@@ -21,10 +21,10 @@ export class AgregarEditarDepartComponent implements OnInit {
       estado:['', Validators.required],
       ciudad:['', Validators.required],
       descripcion:['', Validators.required],
-      foto:['', Validators.required], 
+      foto:[''], 
     });
-    if(+this.route.snapshot.paramMap.get('id') > 0){
-      this.id = +this.route.snapshot.paramMap.get('id');
+    if(+this.route.snapshot.paramMap.get('id_depart') > 0){
+      this.id = +this.route.snapshot.paramMap.get('id_depart');
     }
   }
   
@@ -47,7 +47,7 @@ export class AgregarEditarDepartComponent implements OnInit {
         this.router.navigate(['/listadepart']);
       });
     }else{
-      const Depart: Depart = {
+      const depart: Depart = {
         id_depart: this.depart.get('id_depart').value,
         precio: this.depart.get('precio').value,
         estado: this.depart.get('estado').value,
@@ -55,7 +55,7 @@ export class AgregarEditarDepartComponent implements OnInit {
         descripcion: this.depart.get('descripcion').value,
         foto: this.depart.get('foto').value,
       };
-      this.departService.updateDepart(this.id, Depart).subscribe(data => {
+      this.departService.updateDepart(depart).subscribe(data => {
         this.router.navigate(['/listadepart']);
       })
     }

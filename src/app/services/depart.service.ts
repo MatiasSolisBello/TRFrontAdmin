@@ -19,25 +19,26 @@ export class DepartService {
 
   getListDepart(): Observable<Depart[]>{
     return this.http.get<Depart[]>
-    (this.myAppUrl + this.myApiUrl );
+    (this.myAppUrl + this.myApiUrl+'/listar' );
   }
 
   deleteDepart(id_depart: number):Observable<Depart>{
     return this.http.delete<Depart>
-    (this.myAppUrl + this.myApiUrl + id_depart);
+    (this.myAppUrl + this.myApiUrl+ '/eliminar/' + id_depart);
   }
 
   createDepart(dep : Depart): Observable<Depart>{
     return this.http.post<Depart>
-    (this.myAppUrl + this.myApiUrl, dep, this.httpOptions );
+    (this.myAppUrl + this.myApiUrl+ '/guardar', dep, this.httpOptions );
   }
 
   verDepart(id_depart: number): Observable<Depart>{
-    return this.http.get<Depart>(this.myAppUrl + this.myApiUrl + id_depart);
+    return this.http.get<Depart>
+    (this.myAppUrl + this.myApiUrl + '/listar/'+ id_depart);
   }
 
-  updateDepart(id_depart: number, dep: Depart): Observable<Depart>{
+  updateDepart(dep: Depart): Observable<Depart>{
     return this.http.put<Depart>
-    (this.myAppUrl + this.myApiUrl + id_depart, dep, this.httpOptions);
+    (this.myAppUrl + this.myApiUrl + '/actualizar', dep, this.httpOptions);
   }
 }

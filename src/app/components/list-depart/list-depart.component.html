@@ -22,35 +22,25 @@
                     <th>Precio</th>
                     <th>Estado</th>
                     <th>Ciudad</th>
-                    <th>Descripcion</th>
-                    <th>Foto</th>
                 </tr>
             </thead>
-            <tbody class="contenidobusqueda">
-                <tr *ngFor="let Departamento of listDepart">
-                    <td> 
-                        <a [routerLink]="['/ver-depart/', depart.id_depart]">
-                            {{depart.id_depart}}
-                        </a>
-                    </td>
-                    <td>{{depart.precio}}</td>
-                    <td>{{depart.estado}}</td>
-                    <td>{{depart.ciudad}}</td>
-                    <td>{{depart.descripcion}}</td>
-                    <td>{{depart.foto}}</td>
-                    <td>depart
-                        <button class="btn btn-secondary btm-sm float-right" 
-                            [routerLink]="['/editar-depart/', depart.id_depart]">
-                            EDITAR
-                        </button>
-                        <button class="btn btn-danger btm-sm float-right" 
-                            (click)="delete(depart.id_depart)">
-                            BORRAR
-                        </button>
-                    </td>
-    
-                </tr>
+            <tbody>
+            <tr *ngFor="let depart of listDepart">
+            <td><a [routerLink]="['/ver-depart/', depart.id_depart]">{{depart.id_depart}}</a></td>
+            <td>{{depart.precio}}</td>
+            <td>{{depart.estado}}</td>
+            <td>{{depart.ciudad}}</td>
+            <td>
+                <button class="btn btn-secondary btm-sm float-right" [routerLink]="['/editar-depart/', depart.id_depart]">
+                    EDITAR
+                </button>
+                <button class="btn btn-danger btm-sm float-right" (click)="delete(depart.id_depart)">
+                    BORRAR
+                </button>
+            </td>
+
+            </tr>
             </tbody>
         </table>
     </div>
-    </div>
+</div>

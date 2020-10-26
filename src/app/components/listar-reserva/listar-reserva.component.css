@@ -1,0 +1,5 @@
+@media print{
+    .col, .btn-reporte{
+        display:none;
+    }
+}
