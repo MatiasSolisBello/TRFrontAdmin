@@ -7,6 +7,7 @@ import { ReservaService } from 'src/app/services/reserva.service';
   templateUrl: './listar-reserva.component.html',
   styleUrls: ['./listar-reserva.component.css']
 })
+
 export class ListarReservaComponent implements OnInit {
   listReserva: Reserva[];
   constructor(private reservaService: ReservaService) { }
@@ -19,6 +20,13 @@ export class ListarReservaComponent implements OnInit {
     this.reservaService.getListReserva().subscribe(data => {
       this.listReserva = data;
     });
+  }
+
+  delete(id_reserva: number){
+    this.reservaService.deleteReserva(id_reserva).subscribe(data => {
+      this.cargarReserva();
+
+    })
   }
 
 }

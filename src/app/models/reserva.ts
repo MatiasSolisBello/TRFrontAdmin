@@ -4,7 +4,7 @@ export class Reserva{
     descripcion: string;
     fecha_llegada: Date;
     fecha_salida: Date;
-    rut: number;
-    id_depart: number;
-    id_servicio: number;
+    cliente_rut: Object;
+    depart_id_depart: Object;
+    servicio_id_servicio: Object;
 }

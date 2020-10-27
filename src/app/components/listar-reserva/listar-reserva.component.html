@@ -10,6 +10,12 @@
             <a class="btn btn-info float-right" 
             onclick="print()">GENERAR REPORTE
             </a>
+        
+            <a class="btn btn-success float-right" 
+                [routerLink]="['/agregar-reserva']">
+                Agregar Reserva
+            </a>
+
         </div>
     </div>
     <br>
@@ -22,7 +28,8 @@
                     <th>Precio</th>
                     <th>Llegada</th>
                     <th>Salida</th>
-                    <th>RUN</th>
+                    <th>Cliente</th>
+                    <th>Servicio</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,7 +38,11 @@
                     <td>{{reserva.precio_total}}</td>
                     <td>{{reserva.fecha_llegada}}</td>
                     <td>{{reserva.fecha_salida}}</td>
-                    <td>{{reserva.rut}}</td>
+                    <td>{{reserva.cliente.nombre}}</td>
+                    <td>{{reserva.servicio.nombre}}</td>
+                    <td>
+                        <button class="btn btn-danger btm-sm float-right" (click)="delete(reserva.id_reserva)">CANCELAR</button>
+                    </td>
                 </tr>
             </tbody>
         </table>

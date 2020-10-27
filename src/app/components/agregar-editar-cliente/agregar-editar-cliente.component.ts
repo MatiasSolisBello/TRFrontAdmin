@@ -14,7 +14,9 @@ export class AgregarEditarClienteComponent implements OnInit {
   rutCliente  = 0;
   accion = 'Agregar';
   cli:Cliente;
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private clienteService: ClienteService, private router: Router) { 
+  constructor(private fb: FormBuilder, private route: 
+    ActivatedRoute, private clienteService: ClienteService,
+     private router: Router) { 
     this.cliente = this.fb.group({
       rut:['', Validators.required],
       nombre:['', Validators.required],
