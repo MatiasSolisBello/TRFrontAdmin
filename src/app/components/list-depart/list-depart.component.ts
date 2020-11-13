@@ -4,8 +4,7 @@ import { DepartService } from 'src/app/services/depart.service';
 
 @Component({
   selector: 'app-list-depart',
-  templateUrl: './list-depart.component.html',
-  styleUrls: ['./list-depart.component.css']
+  templateUrl: './list-depart.component.html'
 })
 export class ListDepartComponent implements OnInit {
   listDepart: Depart[];

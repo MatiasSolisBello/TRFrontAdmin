@@ -1,7 +1,17 @@
-<div class="container text-justify text-center">
+<body>
+    <div class="container text-justify text-center">
+        <div>
+            <h1>LOGIN admin </h1>
 
-    <h1>LOGIN</h1>
-    <br>
-    <button [routerLink] ="['/principal']" class="btn btn-secondary float-left">login</button>
-    
-</div>
+            <h5>USUARIO</h5>
+            <input type="text" name="usuario">
+            <br>
+            <h5>CLAVE</h5>
+            <input type="password" name="password">
+            <br>
+            <input type="submit" value="ADMIN" [routerLink]="['/principal']">
+            <br>
+            <input type="submit" value="FUNCIONARIO" [routerLink]="['/principal2']">
+        </div>
+    </div>
+</body>

@@ -1,15 +1,14 @@
 <!--this is navbar.component.html-->
-<app-navbar></app-navbar>
-
+<app-navbar2></app-navbar2>
 <div class="container">
     <div class="row" style="padding-top: 10px;">
         <div class="col-lg-6">
-            <h3>Departamentos</h3>
+            <h3>Lista de Check-In</h3>
         </div>
         <div class="col-lg-6">
             <a class="btn btn-success float-right" 
-                [routerLink]="['/agregar-depart']">
-                Agregar
+                [routerLink]="['/agregar-checkin']">
+                Agregar Check-In
             </a>
         </div>
     </div>
@@ -20,34 +19,29 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Precio</th>
-                    <th>Estado</th>
-                    <th>Ciudad</th>
-                    <th>Mantencion</th>
+                    <th>Condiciones</th>
+                    <th>ID Rserva</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let depart of listDepart">
+            <tr *ngFor="let checkin of listCheckin">
                 <td>
-                    <a [routerLink]="['/ver-depart/',
-                        depart.id_depart]">
-                        {{depart.id_depart}}
+                    <a [routerLink]="['/ver-checkin/',
+                        checkin.id]">
+                        {{checkin.id}}
                     </a>
                 </td>
-                <td>{{depart.precio}}</td>
-                <td>{{depart.estado}}</td>
-                <td>{{depart.ciudad}}</td>
-                <td>{{depart.mantenimiento}}</td>
+                <td>{{checkin.condiciones}}</td>
+                <td>{{checkin.id_reserva}}</td>
                 <td>
-                   
                     <button class="btn btn-secondary btm-sm float-left" 
-                        [routerLink]="['/editar-depart/', 
-                        depart.id_depart]">
+                        [routerLink]="['/editar-checkin/', 
+                        checkin.id]">
                         EDITAR
                     </button>
                     <button class="btn btn-danger btm-sm float-left" 
-                        (click)="delete(depart.id_depart)">
+                        (click)="delete(checkin.id)">
                         BORRAR
                     </button>
                 </td>

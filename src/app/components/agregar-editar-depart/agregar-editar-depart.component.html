@@ -24,7 +24,7 @@
             <select class="form-control" formControlName="estado" name="estado">
                 <option value="">--Seleccione estado--</option>
                 <option value="Disponible">Disponible</option>
-                <option value="En Mantencion">En Mantencion</option>
+                <option value="En mantenimiento">En mantenimiento</option>
                 <option value="Reservado">Reservado</option>
                 <option value="Cerrado">Cerrado</option>
             </select>
@@ -45,6 +45,13 @@
             <span class="text-danger ml-3" 
             *ngIf="depart.get('descripcion').hasError('required') && depart.get('descripcion').touched">
             Descripcion es requerido</span>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12">mantenimiento:</label>
+            <input type="text" name="mantenimiento" class="form-control" formControlName="mantenimiento"> 
+            <span class="text-danger ml-3" 
+            *ngIf="depart.get('mantenimiento').hasError('required') && depart.get('mantenimiento').touched">
+            mantenimiento es requerido</span>
         </div>
         <div class="form-group row">
             <label class="control-label col-md-12">Foto (opcional):</label>

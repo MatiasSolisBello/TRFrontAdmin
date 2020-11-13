@@ -5,7 +5,6 @@ import { ReservaService } from 'src/app/services/reserva.service';
 @Component({
   selector: 'app-listar-reserva',
   templateUrl: './listar-reserva.component.html',
-  styleUrls: ['./listar-reserva.component.css']
 })
 
 export class ListarReservaComponent implements OnInit {

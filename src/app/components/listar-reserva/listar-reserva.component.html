@@ -26,22 +26,25 @@
                 <tr>
                     <th>ID</th>
                     <th>Precio</th>
+                    <th>Descripcion</th>
                     <th>Llegada</th>
                     <th>Salida</th>
-                    <th>Cliente</th>
-                    <th>Servicio</th>
+                    <th>Pago</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let reserva of listReserva">
                     <td>{{reserva.id_reserva}}</td>
                     <td>{{reserva.precio_total}}</td>
+                    <td>{{reserva.descripcion}}</td>
                     <td>{{reserva.fecha_llegada}}</td>
                     <td>{{reserva.fecha_salida}}</td>
-                    <td>{{reserva.cliente.nombre}}</td>
-                    <td>{{reserva.servicio.nombre}}</td>
+                    <td>{{reserva.pago}}</td>
                     <td>
-                        <button class="btn btn-danger btm-sm float-right" (click)="delete(reserva.id_reserva)">CANCELAR</button>
+                        <button class="btn btn-danger btm-sm float-left" 
+                            (click)="delete(reserva.id_reserva)">
+                            CANCELAR RESERVA
+                        </button>
                     </td>
                 </tr>
             </tbody>

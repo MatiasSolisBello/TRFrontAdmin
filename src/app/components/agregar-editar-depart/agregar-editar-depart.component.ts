@@ -6,15 +6,17 @@ import { DepartService } from 'src/app/services/depart.service';
 
 @Component({
   selector: 'app-agregar-editar-depart',
-  templateUrl: './agregar-editar-depart.component.html',
-  styleUrls: ['./agregar-editar-depart.component.css']
+  templateUrl: './agregar-editar-depart.component.html'
 })
 export class AgregarEditarDepartComponent implements OnInit {
   depart: FormGroup;
   id  = 0;
   accion = 'Agregar';
   dep:Depart;
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private departService: DepartService, private router: Router) { 
+  constructor(private fb: FormBuilder, 
+    private route: ActivatedRoute, 
+    private departService: DepartService, 
+    private router: Router) { 
     this.depart = this.fb.group({
       id_depart:['', Validators.required],
       precio:['', Validators.required],
@@ -22,6 +24,7 @@ export class AgregarEditarDepartComponent implements OnInit {
       ciudad:['', Validators.required],
       descripcion:['', Validators.required],
       foto:[''], 
+      mantenimiento: [''],
     });
     if(+this.route.snapshot.paramMap.get('id_depart') > 0){
       this.id = +this.route.snapshot.paramMap.get('id_depart');
@@ -41,6 +44,7 @@ export class AgregarEditarDepartComponent implements OnInit {
         ciudad: this.depart.get('ciudad').value,
         descripcion: this.depart.get('descripcion').value,
         foto: this.depart.get('foto').value,
+        mantenimiento: this.depart.get('mantenimiento').value,
 
       };
       this.departService.createDepart(Depart).subscribe(data => {
@@ -54,6 +58,7 @@ export class AgregarEditarDepartComponent implements OnInit {
         ciudad: this.depart.get('ciudad').value,
         descripcion: this.depart.get('descripcion').value,
         foto: this.depart.get('foto').value,
+        mantenimiento: this.depart.get('mantenimiento').value,
       };
       this.departService.updateDepart(depart).subscribe(data => {
         this.router.navigate(['/listadepart']);
@@ -73,7 +78,8 @@ export class AgregarEditarDepartComponent implements OnInit {
           estado: data.estado,
           ciudad: data.ciudad,
           descripcion: data.descripcion,
-          foto: data.foto
+          foto: data.foto,
+          mantenimiento: data.mantenimiento
         });
       });
 

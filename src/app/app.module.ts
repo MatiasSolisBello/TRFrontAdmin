@@ -18,6 +18,13 @@ import { AgregarEditarDepartComponent } from './components/agregar-editar-depart
 import { VerDepartComponent } from './components/ver-depart/ver-depart.component';
 import { ListarReservaComponent } from './components/listar-reserva/listar-reserva.component';
 import { CrearReservaComponent } from './components/crear-reserva/crear-reserva.component';
+import { Principal2Component } from './components/principal2/principal2.component';
+import { Navbar2Component } from './components/navbar2/navbar2.component';
+import { ListCheckinComponent } from './components/list-checkin/list-checkin.component';
+import { ListCheckoutComponent } from './components/list-checkout/list-checkout.component';
+import { AgregarEditarCheckinComponent } from './components/agregar-editar-checkin/agregar-editar-checkin.component';
+import { AgregarEditarCheckoutComponent } from './components/agregar-editar-checkout/agregar-editar-checkout.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +41,12 @@ import { CrearReservaComponent } from './components/crear-reserva/crear-reserva.
     VerDepartComponent,
     ListarReservaComponent,
     CrearReservaComponent,
+    Principal2Component,
+    Navbar2Component,
+    ListCheckinComponent,
+    ListCheckoutComponent,
+    AgregarEditarCheckinComponent,
+    AgregarEditarCheckoutComponent,
   ],
   imports: [
     BrowserModule,

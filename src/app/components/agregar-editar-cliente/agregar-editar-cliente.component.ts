@@ -6,8 +6,7 @@ import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
   selector: 'app-agregar-editar-cliente',
-  templateUrl: './agregar-editar-cliente.component.html',
-  styleUrls: ['./agregar-editar-cliente.component.css']
+  templateUrl: './agregar-editar-cliente.component.html'
 })
 export class AgregarEditarClienteComponent implements OnInit {
   cliente: FormGroup;

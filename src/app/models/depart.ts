@@ -5,4 +5,5 @@ export class Depart{
     ciudad: string;
     descripcion: string;
     foto: string;
+    mantenimiento: string;
 }
