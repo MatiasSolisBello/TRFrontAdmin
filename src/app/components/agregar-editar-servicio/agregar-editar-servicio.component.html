@@ -6,6 +6,13 @@
         <br>
         <h3>{{accion}} Servicio</h3>
         <div class="form-group row">
+            <label class="control-label col-md-12">ID servicio:</label>
+            <input type="number" name="id_servicio" class="form-control" formControlName="id_servicio"> 
+            <span class="text-danger ml-3" 
+            *ngIf="servicio.get('id_servicio').hasError('required') && servicio.get('id_servicio').touched">
+            ID es requerido</span>
+        </div>
+        <div class="form-group row">
             <label class="control-label col-md-12">Nombre del servicio:</label>
             <input type="text" name="servicio" class="form-control"  formControlName="servicio">
             <span class="text-danger ml-3" 

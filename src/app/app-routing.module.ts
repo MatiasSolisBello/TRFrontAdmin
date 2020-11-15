@@ -5,7 +5,7 @@ import { AgregarEditarCheckoutComponent } from './components/agregar-editar-chec
 import { AgregarEditarClienteComponent } from './components/agregar-editar-cliente/agregar-editar-cliente.component';
 import { AgregarEditarDepartComponent } from './components/agregar-editar-depart/agregar-editar-depart.component';
 import { AgregarEditarServicioComponent } from './components/agregar-editar-servicio/agregar-editar-servicio.component';
-import { CrearReservaComponent } from './components/crear-reserva/crear-reserva.component';
+import { CheckForReservaComponent } from './components/check-for-reserva/check-for-reserva.component';
 import { ListCheckinComponent } from './components/list-checkin/list-checkin.component';
 import { ListCheckoutComponent } from './components/list-checkout/list-checkout.component';
 import { ListClienteComponent } from './components/list-cliente/list-cliente.component';
@@ -23,14 +23,12 @@ const routes: Routes = [
   {path: 'agregar-cliente', component: AgregarEditarClienteComponent},
   {path: 'agregar-servicio', component: AgregarEditarServicioComponent},
   {path: 'agregar-depart', component: AgregarEditarDepartComponent},
-  {path: 'agregar-reserva', component: CrearReservaComponent},
   {path: 'agregar-checkin', component: AgregarEditarCheckinComponent},
   {path: 'agregar-checkout', component: AgregarEditarCheckoutComponent},
 
   {path: 'editar-cliente/:rut', component: AgregarEditarClienteComponent},
   {path: 'editar-servicio/:id_servicio', component: AgregarEditarServicioComponent},
   {path: 'editar-depart/:id_depart', component: AgregarEditarDepartComponent},
-  {path: 'editar-reserva/:id_reserva', component: CrearReservaComponent},
   {path: 'editar-checkin/:id', component: AgregarEditarCheckinComponent},
   {path: 'editar-checkout/:id', component: AgregarEditarCheckinComponent},
 
@@ -41,6 +39,7 @@ const routes: Routes = [
   {path: 'listadepart', component: ListDepartComponent},
   {path: 'listaservicio', component: ListServicioComponent},
   {path: 'listareserva', component: ListarReservaComponent},
+  {path: 'check-reserva', component: CheckForReservaComponent},
   {path: 'checkin', component: ListCheckinComponent},
   {path: 'checkout', component: ListCheckoutComponent},
 

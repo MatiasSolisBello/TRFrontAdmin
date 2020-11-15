@@ -15,6 +15,7 @@ export class AgregarEditarServicioComponent implements OnInit {
   ser:Servicio;
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private servicioService: ServicioService, private router: Router) { 
     this.servicio = this.fb.group({
+      id_servicio:['', Validators.required],
       servicio:['', Validators.required],
       descripcion:['', Validators.required],
       precio:['', Validators.required],

@@ -8,7 +8,7 @@ import { Checkin } from '../models/checkin';
 })
 export class CheckinService {
   myAppUrl = 'http://localhost:8090/';
-	myApiUrl = 'api';
+	myApiUrl = 'checkin';
 	httpOptions = {
 		headers: new HttpHeaders({
 			'Content-Type': 'application/json'

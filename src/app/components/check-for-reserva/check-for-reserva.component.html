@@ -1,15 +1,9 @@
 <!--this is navbar.component.html-->
-<app-navbar></app-navbar>
-
+<app-navbar2></app-navbar2>
 <div class="container">
     <div class="row" style="padding-top: 10px;">
         <div class="col-lg-6">
-            <h3>Reservas</h3>
-        </div>
-        <div class="btn-reporte col-lg-6">
-            <a class="btn btn-info float-right" 
-            onclick="print()">GENERAR REPORTE
-            </a>
+            <h3>Lista de Reservas</h3>
         </div>
     </div>
     <br>
@@ -35,9 +29,15 @@
                     <td>{{reserva.fecha_salida}}</td>
                     <td>{{reserva.pago}}</td>
                     <td>
-                        <button class="btn btn-danger btm-sm float-left" 
-                            (click)="delete(reserva.id_reserva)">
-                            CANCELAR RESERVA
+                        <button class="btn btn-info btm-sm float-right" 
+                            >
+                            Check-In
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-warning btm-sm float-left" 
+                            >
+                            Check-Out
                         </button>
                     </td>
                 </tr>

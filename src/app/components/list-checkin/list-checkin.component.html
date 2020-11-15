@@ -5,12 +5,6 @@
         <div class="col-lg-6">
             <h3>Lista de Check-In</h3>
         </div>
-        <div class="col-lg-6">
-            <a class="btn btn-success float-right" 
-                [routerLink]="['/agregar-checkin']">
-                Agregar Check-In
-            </a>
-        </div>
     </div>
     <br>
     <!-- ADD TASK FORM -->
@@ -20,31 +14,12 @@
                 <tr>
                     <th>ID</th>
                     <th>Condiciones</th>
-                    <th>ID Rserva</th>
-                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
             <tr *ngFor="let checkin of listCheckin">
-                <td>
-                    <a [routerLink]="['/ver-checkin/',
-                        checkin.id]">
-                        {{checkin.id}}
-                    </a>
-                </td>
+                <td>{{checkin.id}}</td>
                 <td>{{checkin.condiciones}}</td>
-                <td>{{checkin.id_reserva}}</td>
-                <td>
-                    <button class="btn btn-secondary btm-sm float-left" 
-                        [routerLink]="['/editar-checkin/', 
-                        checkin.id]">
-                        EDITAR
-                    </button>
-                    <button class="btn btn-danger btm-sm float-left" 
-                        (click)="delete(checkin.id)">
-                        BORRAR
-                    </button>
-                </td>
 
             </tr>
             </tbody>
