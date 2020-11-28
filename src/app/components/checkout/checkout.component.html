@@ -1,0 +1,32 @@
+<!--this is navbar.component.html-->
+<app-navbar2></app-navbar2>
+
+<div class="container">
+    <div class="row" style="padding-top: 10px;">
+        <div class="col-lg-6">
+            <h3>Lista de Check-Out</h3>
+        </div>
+    </div>
+    <br>
+    <!-- ADD TASK FORM -->
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Estado</th>
+                    <th>Multa</th>
+                    <th>Problemas</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let checkout of listCheckout">
+                <td>{{checkout.id}}</td>
+                <td>{{checkout.estado}}</td>
+                <td>{{checkout.multa}}</td>
+                <td>{{checkout.problemas}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

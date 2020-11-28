@@ -1,0 +1,53 @@
+<!--this is navbar.component.html-->
+<app-navbar></app-navbar>
+
+<div class="container">
+    <form [formGroup] = "usuario" (ngSubmit)="guardarUsuario()">
+        <br>
+        <h3>{{accion}} usuario</h3>
+        <div class="form-group row">
+            <label class="control-label col-md-12">RUN:</label>
+            <input type="number" name="id" class="form-control" formControlName="id"> 
+            <span class="text-danger ml-3" 
+            *ngIf="usuario.get('id').hasError('required') && usuario.get('id').touched">
+            El run es requerido</span>
+
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12">Nombre:</label>
+            <input type="text" name="username" class="form-control"  formControlName="username">
+            <span class="text-danger ml-3" 
+            *ngIf="usuario.get('username').hasError('required') && usuario.get('username').touched">
+            El nombre es requerido</span>
+
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12">Telefono o Celular:</label>
+            <input type="tel" name="telefono" class="form-control" formControlName="telefono">
+            <span class="text-danger ml-3" 
+            *ngIf="usuario.get('telefono').hasError('required') && usuario.get('telefono').touched">
+            El telefono es requerido</span>
+
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12">Correo</label>
+            <input type="email" name="email" class="form-control" formControlName="email">
+            <span class="text-danger ml-3" 
+            *ngIf="usuario.get('email').hasError('required') && usuario.get('email').touched">
+            El correo es requerido</span>
+
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12">Contraseña:</label>
+            <input type="password" name="password" class="form-control" formControlName="password">
+            <span class="text-danger ml-3" 
+            *ngIf="usuario.get('password').hasError('required') && usuario.get('password').touched">
+            El password es requerido</span>
+
+        </div>
+        <div class="form-group row">
+            <button [routerLink] ="['/lista-usuarios']" class="btn btn-secondary float-left">Cancelar</button>
+            <button class="btn btn-success float-right" [disabled] = "usuario.invalid">Aceptar</button>
+        </div>
+    </form>
+</div>

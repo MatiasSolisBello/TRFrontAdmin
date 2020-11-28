@@ -1,0 +1,47 @@
+<!--this is navbar.component.html-->
+<app-navbar></app-navbar>
+<div class="container">
+<div class="row" style="padding: 10px;">
+    <div class="col-lg-6">
+        <h3>Lista de Servicios</h3>
+    </div>
+    <div class="col-lg-6">
+        <a class="btn btn-success float-right" 
+            [routerLink]="['/agregar-servicio']">
+            Agregar Servicio
+        </a>
+    </div>
+</div>
+<!-- ADD TASK FORM -->
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let servicio of listServicio">
+                <td>{{servicio.id}} </td>
+                <td>{{servicio.nombre}}</td>
+                <td>{{servicio.descripcion}}</td>
+                <td>{{servicio.precio}}</td>
+                <td>
+                    <button class="btn btn-secondary btm-sm float-left" 
+                        [routerLink]="['/editar-servicio/', servicio.id]">
+                        EDITAR
+                    </button>
+                    <button class="btn btn-danger btm-sm float-left" 
+                        (click)="delete(servicio.id)">
+                        BORRAR
+                    </button>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>

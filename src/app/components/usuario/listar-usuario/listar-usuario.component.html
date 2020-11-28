@@ -1,0 +1,51 @@
+<!--this is navbar.component.html-->
+<app-navbar></app-navbar>
+<div class="container">
+<div class="row" style="padding-top: 10px;">
+    <div class="col-lg-6">
+        <h3>Lista de Usuarios</h3>
+    </div>
+    <div class="col-lg-6">
+        <a class="btn btn-success float-right" 
+            [routerLink]="['/agregar-usuario']">
+            Agregar usuario
+        </a>
+    </div>
+</div>
+<br>
+<!-- ADD TASK FORM -->
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>RUN</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Telefono</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of listUsuario">
+                <td>{{usuario.id}}</td>
+                <td>{{usuario.username}}</td>
+                <td>{{usuario.email}}</td>
+                <td>{{usuario.telefono}}</td>
+                <td>{{usuario.password}}</td>
+                <td>
+                    <button class="btn btn-secondary btm-sm float-right" 
+                        [routerLink]="['/editar-usuario/', usuario.id]">
+                        EDITAR
+                    </button>
+                    <button class="btn btn-danger btm-sm float-right"
+                        (click)="delete(usuario.id)">
+                        BORRAR
+                    </button>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+
