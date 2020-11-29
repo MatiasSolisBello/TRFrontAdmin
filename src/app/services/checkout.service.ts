@@ -8,7 +8,7 @@ import { Checkout } from '../models/Checkout';
 })
 export class CheckoutService {
   myAppUrl = 'http://localhost:8090';
-	myApiUrl = '/checkout';
+	myApiUrl = '/checkout/';
 	httpOptions = {
 		headers: new HttpHeaders({
 			'Content-Type': 'application/json'
@@ -21,8 +21,23 @@ export class CheckoutService {
     (this.myAppUrl + this.myApiUrl);
   }
 
+  createCheckout(checkout : Checkout): Observable<Checkout>{
+    return this.http.post<Checkout>
+    (this.myAppUrl + this.myApiUrl, checkout, this.httpOptions );
+  }
+
   deleteCheckout(id: number):Observable<Checkout>{
     return this.http.delete<Checkout>
     (this.myAppUrl + this.myApiUrl + id);
+  }
+
+  verCheckout(id: number): Observable<Checkout>{
+    return this.http.get<Checkout>
+    (this.myAppUrl + this.myApiUrl+ id);
+  }
+
+  updateCheckout(checkout: Checkout): Observable<Checkout>{
+    return this.http.put<Checkout>
+    (this.myAppUrl + this.myApiUrl, checkout, this.httpOptions);
   }
 }

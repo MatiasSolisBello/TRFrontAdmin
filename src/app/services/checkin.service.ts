@@ -21,8 +21,23 @@ export class CheckinService {
     (this.myAppUrl + this.myApiUrl);
   }
 
+  createCheckin(checkin : Checkin): Observable<Checkin>{
+    return this.http.post<Checkin>
+    (this.myAppUrl + this.myApiUrl, checkin, this.httpOptions );
+  }
+
   deleteCheckin(id: number):Observable<Checkin>{
     return this.http.delete<Checkin>
     (this.myAppUrl + this.myApiUrl+ id);
+  }
+
+  verCheckin(id: number): Observable<Checkin>{
+    return this.http.get<Checkin>
+    (this.myAppUrl + this.myApiUrl+ id);
+  }
+
+  updateCheckin(checkin: Checkin): Observable<Checkin>{
+    return this.http.put<Checkin>
+    (this.myAppUrl + this.myApiUrl, checkin, this.httpOptions);
   }
 }

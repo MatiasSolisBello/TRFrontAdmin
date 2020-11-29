@@ -21,6 +21,8 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { AddEditUsuarioComponent } from './components/usuario/add-edit-usuario/add-edit-usuario.component';
 import { AddEditDepartComponent } from './components/depart/add-edit-depart/add-edit-depart.component';
 import { AddEditServicioComponent } from './components/servicio/add-edit-servicio/add-edit-servicio.component';
+import { AddEditCheckinComponent } from './components/checkin/add-edit-checkin/add-edit-checkin.component';
+import { AddEditCheckoutComponent } from './components/checkout/add-edit-checkout/add-edit-checkout.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { AddEditServicioComponent } from './components/servicio/add-edit-servici
     AddEditUsuarioComponent,
     AddEditDepartComponent,
     AddEditServicioComponent,
+    AddEditCheckinComponent,
+    AddEditCheckoutComponent,
   ],
   imports: [
     BrowserModule,

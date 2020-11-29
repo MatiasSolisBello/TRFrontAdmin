@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CheckReservaComponent } from './components/check-reserva/check-reserva.component';
+import { AddEditCheckinComponent } from './components/checkin/add-edit-checkin/add-edit-checkin.component';
 import { CheckinComponent } from './components/checkin/checkin.component';
+import { AddEditCheckoutComponent } from './components/checkout/add-edit-checkout/add-edit-checkout.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { AddEditDepartComponent } from './components/depart/add-edit-depart/add-edit-depart.component';
 import { ListarDepartComponent } from './components/depart/listar-depart/listar-depart.component';
@@ -26,12 +28,13 @@ const routes: Routes = [
   {path: 'agregar-usuario', component: AddEditUsuarioComponent},
   {path: 'agregar-depart', component: AddEditDepartComponent},
   {path: 'agregar-servicio', component: AddEditServicioComponent},
-  //{path: 'agregar-checkin', component: AddEditCheckinComponent},
+  {path: 'agregar-checkin', component: AddEditCheckinComponent},
+  {path: 'agregar-checkout', component: AddEditCheckoutComponent},
 
   {path: 'editar-usuario/:id', component: AddEditUsuarioComponent},
   {path: 'editar-depart/:id', component: AddEditDepartComponent},
   {path: 'editar-servicio/:id', component: AddEditServicioComponent},
-  //{path: 'editar-checkin/:id', component: AddEditCheckinComponent},
+
 
   {path: 'principal', component: PrincipalComponent},
   {path: 'principal2', component: Principal2Component},

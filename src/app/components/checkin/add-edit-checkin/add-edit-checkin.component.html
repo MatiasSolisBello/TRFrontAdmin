@@ -1,0 +1,28 @@
+<!--this is navbar.component.html-->
+<app-navbar2></app-navbar2>
+
+<div class="container">
+    <form [formGroup] = "checkin" (ngSubmit)="guardarCheckin()">
+        <br>
+        <h3>{{accion}} Checkin</h3>
+        <div class="form-group row">
+            <label class="control-label col-md-12">ID Checkin:</label>
+            <input type="number" name="id" class="form-control" formControlName="id"> 
+            <span class="text-danger ml-3" 
+            *ngIf="checkin.get('id').hasError('required') && checkin.get('id').touched">
+            ID es requerido</span>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12">Condiciones:</label>
+            <input type="text" name="condiciones" class="form-control" formControlName="condiciones"> 
+            <span class="text-danger ml-3" 
+            *ngIf="checkin.get('condiciones').hasError('required') && checkin.get('condiciones').touched">
+            Condiciones es requerido</span>
+        </div>
+        <div class="form-group row">
+            <button [routerLink] ="['/lista-check-reserva']" class="btn btn-secondary float-left">Cancelar</button>
+            <button class="btn btn-success float-right" [disabled] = "checkin.invalid">Aceptar</button>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,42 @@
+<!--this is navbar.component.html-->
+<app-navbar2></app-navbar2>
+
+<div class="container">
+    <form [formGroup] = "checkout" (ngSubmit)="guardarCheckout()">
+        <br>
+        <h3>{{accion}} checkout</h3>
+        <div class="form-group row">
+            <label class="control-label col-md-12">ID checkout:</label>
+            <input type="number" name="id" class="form-control" formControlName="id"> 
+            <span class="text-danger ml-3" 
+            *ngIf="checkout.get('id').hasError('required') && checkout.get('id').touched">
+            ID es requerido</span>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12">Estado:</label>
+            <input type="text" name="estado" class="form-control" formControlName="estado"> 
+            <span class="text-danger ml-3" 
+            *ngIf="checkout.get('estado').hasError('required') && checkout.get('estado').touched">
+            Estado es requerido</span>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12">Multa:</label>
+            <input type="number" name="multa" class="form-control" formControlName="multa"> 
+            <span class="text-danger ml-3" 
+            *ngIf="checkout.get('multa').hasError('required') && checkout.get('multa').touched">
+            Multa es requerido</span>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-12">Problemas:</label>
+            <input type="text" name="problemas" class="form-control" formControlName="problemas"> 
+            <span class="text-danger ml-3" 
+            *ngIf="checkout.get('problemas').hasError('required') && checkout.get('problemas').touched">
+            Problemas es requerido</span>
+        </div>
+        <div class="form-group row">
+            <button [routerLink] ="['/lista-check-reserva']" class="btn btn-secondary float-left">Cancelar</button>
+            <button class="btn btn-success float-right" [disabled] = "checkout.invalid">Aceptar</button>
+        </div>
+    </form>
+</div>
+
