@@ -29,12 +29,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let depart of listDepart">
-                <td>
-                    <a [routerLink]="['/ver-depart/',
-                        depart.id]">
-                        {{depart.id}}
-                    </a>
-                </td>
+                <td>{{depart.id}} </td>
                 <td>{{depart.precio}}</td>
                 <td>{{depart.estado}}</td>
                 <td>{{depart.ciudad}}</td>

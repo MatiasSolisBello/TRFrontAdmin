@@ -1,12 +1,20 @@
 <!--this is navbar.component.html-->
 <app-navbar></app-navbar>
 
+<style>
+    @media print{
+        .report{
+            display: none;
+        }
+    }
+</style>
+
 <div class="container">
     <div class="row" style="padding-top: 10px;">
         <div class="col-lg-6">
             <h3>Reservas</h3>
         </div>
-        <div class="btn-reporte col-lg-6">
+        <div class="btn-reporte col-lg-6 report" >
             <a class="btn btn-info float-right" 
             onclick="print()">GENERAR REPORTE
             </a>
@@ -35,12 +43,6 @@
                     <td>{{reserva.llegada}}</td>
                     <td>{{reserva.salida}}</td>
                     <td>{{reserva.pago}}</td>
-                    <td>
-                        <button class="btn btn-danger btm-sm float-left" 
-                            (click)="delete(reserva.id)">
-                            CANCELAR RESERVA
-                        </button>
-                    </td>
                 </tr>
             </tbody>
         </table>

@@ -28,7 +28,7 @@ const routes: Routes = [
   {path: 'agregar-usuario', component: AddEditUsuarioComponent},
   {path: 'agregar-depart', component: AddEditDepartComponent},
   {path: 'agregar-servicio', component: AddEditServicioComponent},
-  {path: 'agregar-checkin', component: AddEditCheckinComponent},
+  {path: 'agregar-checkin/:idReserva', component: AddEditCheckinComponent},
   {path: 'agregar-checkout', component: AddEditCheckoutComponent},
 
   {path: 'editar-usuario/:id', component: AddEditUsuarioComponent},
