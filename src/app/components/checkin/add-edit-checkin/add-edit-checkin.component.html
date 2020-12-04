@@ -7,11 +7,20 @@
         <h3>{{accion}} Checkin</h3>
         <div class="form-group row">
             <label class="control-label col-md-12">ID Checkin:</label>
-            <input type="number" name="id" class="form-control" formControlName="id"> 
+            <input type="number" name="id" class="form-control" [(ngModel)]="dato"formControlName="id"> 
             <span class="text-danger ml-3" 
             *ngIf="checkin.get('id').hasError('required') && checkin.get('id').touched">
             ID es requerido</span>
         </div>
+       
+        <div class="form-group row">
+            <label class="control-label col-md-12">ID Reserva:</label>
+            <input type="number" name="reserva_id" class="form-control"[(ngModel)]="dato" formControlName="reserva_id"> 
+            <span class="text-danger ml-3" 
+            *ngIf="checkin.get('reserva_id').hasError('required') && checkin.get('reserva_id').touched">
+            ID es requerido</span>
+        </div>
+
         <div class="form-group row">
             <label class="control-label col-md-12">Condiciones:</label>
             <input type="text" name="condiciones" class="form-control" formControlName="condiciones"> 

@@ -10,8 +10,9 @@ import { CheckinService } from 'src/app/services/checkin.service';
 })
 export class AddEditCheckinComponent implements OnInit {
   checkin: FormGroup;
-  idReserva  = 0;
+  id  = 0;
   accion = 'Agregar';
+  dato="";
   in:Checkin;
   constructor(private fb: FormBuilder, 
     private route: ActivatedRoute, 
@@ -20,9 +21,10 @@ export class AddEditCheckinComponent implements OnInit {
     this.checkin = this.fb.group({
       id:['', Validators.required],
       condiciones:['', Validators.required],
+      reserva_id:['', Validators.required],
     });
-    if(+this.route.snapshot.paramMap.get('idReserva') > 0){
-      this.idReserva = +this.route.snapshot.paramMap.get('idReserva');
+    if(+this.route.snapshot.paramMap.get('id') > 0){
+      this.id = +this.route.snapshot.paramMap.get('id');
     }
   }
 
@@ -35,28 +37,30 @@ export class AddEditCheckinComponent implements OnInit {
       const Checkin: Checkin = {
         id: this.checkin.get('id').value,
         condiciones: this.checkin.get('condiciones').value,
-
+        reserva_id: this.checkin.get('reserva_id').value,
       };
-      this.checkinService.createCheckin(this.idReserva, Checkin).subscribe(data => {
+      this.checkinService.createCheckin(this.id, Checkin).subscribe(data => {
         this.router.navigate(['/lista-checkin']);
       });
     }else{
       const checkin: Checkin = {
         id: this.checkin.get('id').value,
         condiciones: this.checkin.get('condiciones').value,
+        reserva_id: this.checkin.get('reserva_id').value,
       };
     }
     console.log(this.checkin);
   }
 
   esEditar(){
-    if(this.idReserva > 0){
+    if(this.id > 0){
       this.accion = 'Editar';
-      this.checkinService.verCheckin(this.idReserva).subscribe(data => {
+      this.checkinService.verCheckin(this.id).subscribe(data => {
         this.in = data;
         this.checkin.patchValue({
           id: data.id,
           condiciones: data.condiciones,
+          reserva_id: data.reserva_id,
         });
       });
 

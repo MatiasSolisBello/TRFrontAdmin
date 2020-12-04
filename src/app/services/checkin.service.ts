@@ -8,7 +8,7 @@ import { Checkin } from '../models/Checkin';
 })
 export class CheckinService {
   myAppUrl = 'http://localhost:8090';
-	myApiUrl = '/reserva/';
+	myApiUrl = '/checkin/';
 	httpOptions = {
 		headers: new HttpHeaders({
 			'Content-Type': 'application/json'
@@ -21,9 +21,10 @@ export class CheckinService {
     (this.myAppUrl + this.myApiUrl);
   }
 
-  createCheckin(idReserva: number, checkin : Checkin): Observable<Checkin>{
+  createCheckin(reserva_id: number, checkin : Checkin): Observable<Checkin>{
     return this.http.post<Checkin>
-    (this.myAppUrl + this.myApiUrl +'/'+idReserva + '/checkin', checkin, this.httpOptions );
+    (this.myAppUrl + '/reserva/' + checkin.reserva_id + 
+    this.myApiUrl, checkin, this.httpOptions );
   }
 
   deleteCheckin(id: number):Observable<Checkin>{

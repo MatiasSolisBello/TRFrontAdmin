@@ -6,8 +6,15 @@
         <br>
         <h3>{{accion}} checkout</h3>
         <div class="form-group row">
+            <label class="control-label col-md-12">ID Reserva:</label>
+            <input type="number" name="reserva_id" [(ngModel)]="dato" class="form-control" formControlName="reserva_id"> 
+            <span class="text-danger ml-3" 
+            *ngIf="checkout.get('reserva_id').hasError('required') && checkout.get('reserva_id').touched">
+            ID es requerido</span>
+        </div>
+        <div class="form-group row">
             <label class="control-label col-md-12">ID checkout:</label>
-            <input type="number" name="id" class="form-control" formControlName="id"> 
+            <input type="number" name="id" [(ngModel)]="dato" class="form-control" formControlName="id"> 
             <span class="text-danger ml-3" 
             *ngIf="checkout.get('id').hasError('required') && checkout.get('id').touched">
             ID es requerido</span>

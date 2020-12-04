@@ -10,6 +10,7 @@ export class CheckinComponent implements OnInit {
   listCheckin: Checkin[];
   constructor(private checkinService: CheckinService) { }
 
+
   ngOnInit(): void {
     this.cargarCheckin();
   }

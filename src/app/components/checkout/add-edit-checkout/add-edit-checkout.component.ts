@@ -11,7 +11,9 @@ import { CheckoutService } from 'src/app/services/checkout.service';
 export class AddEditCheckoutComponent implements OnInit {
   checkout: FormGroup;
   id  = 0;
+  idReserva  = 0;
   accion = 'Agregar';
+  dato="";
   out:Checkout;
   constructor(private fb: FormBuilder, 
     private route: ActivatedRoute, 
@@ -22,6 +24,8 @@ export class AddEditCheckoutComponent implements OnInit {
       estado:['', Validators.required],
       multa:['', Validators.required],
       problemas:['', Validators.required],
+      reserva_id:['', Validators.required],
+
     });
     if(+this.route.snapshot.paramMap.get('id') > 0){
       this.id = +this.route.snapshot.paramMap.get('id');
@@ -41,7 +45,7 @@ export class AddEditCheckoutComponent implements OnInit {
         problemas: this.checkout.get('problemas').value,
         reserva_id: this.checkout.get('reserva_id').value,
       };
-      this.checkoutService.createCheckout(Checkout).subscribe(data => {
+      this.checkoutService.createCheckout(this.idReserva, Checkout).subscribe(data => {
         this.router.navigate(['/lista-checkout']);
       });
     }else{

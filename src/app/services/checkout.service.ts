@@ -21,9 +21,10 @@ export class CheckoutService {
     (this.myAppUrl + this.myApiUrl);
   }
 
-  createCheckout(checkout : Checkout): Observable<Checkout>{
+  createCheckout(reserva_id: number, checkout : Checkout): Observable<Checkout>{
     return this.http.post<Checkout>
-    (this.myAppUrl + this.myApiUrl, checkout, this.httpOptions );
+    (this.myAppUrl + '/reserva/' + checkout.reserva_id + 
+    this.myApiUrl, checkout, this.httpOptions );
   }
 
   deleteCheckout(id: number):Observable<Checkout>{
