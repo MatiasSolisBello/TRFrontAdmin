@@ -30,7 +30,7 @@
             <tbody>
             <tr *ngFor="let depart of listDepart">
                 <td>{{depart.id}} </td>
-                <td>{{depart.precio}}</td>
+                <td>{{depart.precio | currency: '$'}}</td>
                 <td>{{depart.estado}}</td>
                 <td>{{depart.ciudad}}</td>
                 <td>{{depart.mantenimiento}}</td>
@@ -41,6 +41,7 @@
                         depart.id]">
                         EDITAR
                     </button>
+
                     <button class="btn btn-danger btm-sm float-left" 
                         (click)="delete(depart.id)">
                         BORRAR

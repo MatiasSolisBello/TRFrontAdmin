@@ -28,9 +28,9 @@
                 <td>{{servicio.id}} </td>
                 <td>{{servicio.nombre}}</td>
                 <td>{{servicio.descripcion}}</td>
-                <td>{{servicio.precio}}</td>
+                <td>{{servicio.precio | currency: '$' }}</td>
                 <td>
-                    <button class="btn btn-secondary btm-sm float-left" 
+                    <button class="btn btn-secondary btm-sm float-right" 
                         [routerLink]="['/editar-servicio/', servicio.id]">
                         EDITAR
                     </button>

@@ -1,6 +1,7 @@
 <!--this is navbar.component.html-->
 <app-navbar></app-navbar>
 
+<!--CSS PARA GENERAR REPORTE-->
 <style>
     @media print{
         .report{
@@ -9,6 +10,10 @@
     }
 </style>
 
+<!--FILTRO PARA FECHAS-->
+
+
+<!--LISTADO DE RESERVA-->
 <div class="container">
     <div class="row" style="padding-top: 10px;">
         <div class="col-lg-6">
@@ -38,13 +43,16 @@
             <tbody>
                 <tr *ngFor="let reserva of listReserva">
                     <td>{{reserva.id}}</td>
-                    <td>{{reserva.precio}}</td>
+                    <td>{{reserva.precio | currency: '$'}}</td>
                     <td>{{reserva.descripcion}}</td>
-                    <td>{{reserva.llegada}}</td>
-                    <td>{{reserva.salida}}</td>
+                    <td>{{reserva.llegada | date: 'longDate'}}</td>
+                    <td>{{reserva.salida | date: 'longDate'}}</td>
                     <td>{{reserva.pago}}</td>
                 </tr>
             </tbody>
         </table>
+
     </div>
 </div>
+
+
